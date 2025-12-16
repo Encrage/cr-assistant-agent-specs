@@ -86,6 +86,7 @@ cr-assistant-agent-specs/ │ ├── README.md # This file ├── roadmap/
 4. After focus group results (02 Jan 2026), update and tag `design/v3.7-draft`.  
 5. Begin development milestone M1 (data persistence prototype).  
 
+> 🟢 Current Status: v3.6 Baseline Final – Focus Group running until 02 Jan 2026.
 ---
 
 ## 📄 Internal Use Notice
