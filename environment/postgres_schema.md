@@ -52,6 +52,12 @@ No PII data is kept; records support trend analysis, QA vali
 
 ---
 
+### Connection and Access Notes
+The application connects to this database using environment variables defined in
+[connection_config_sample.env](connection_config_sample.env).
+Credentials and salts are stored only in the local .env file on the VM (not in version control).
+---
+
 ## ⚙️ Indexing and Performance
 ```sql
 CREATE INDEX idx_engineer_code ON session_metadata (engineer_code);
