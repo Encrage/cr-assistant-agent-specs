@@ -94,4 +94,61 @@ It ensures version control, traceability, and compatibility with AI tools (Trayc
 
 ---
 
+## 🧠 Appendix – AI Prompt Guidelines (Traycer AI / Claude)
+
+### 🎯 Purpose
+To ensure consistent, high‑quality AI‑assisted code generation, all development issues and prompts must follow a clear structure.  
+These guidelines describe how to compose prompts that Traycer AI or Claude can interpret effectively.
+
+---
+
+### 🧩 Prompt Structure
+Each prompt should contain five components:
+
+| Section | Purpose | Example |
+|----------|----------|----------|
+| **Goal** | Define what you want the AI to produce | “Generate SQL schema for session_metadata table.” |
+| **Context** | Provide environment info, dependencies, and existing files | “PostgreSQL 16 on Ubuntu 24.04, database cr_assistant; schema_design.md defines trend_summary layout.” |
+| **Inputs** | List tables, variables, columns, or logic requirements | “Columns: session_id UUID, start_time timestamp, end_time timestamp, status varchar(20)” |
+| **Constraints** | Specify rules for output | “Use snake_case names, add primary key, foreign key to trend_summary.” |
+| **Expected Output** | Describe exactly what format the AI should return | “Return SQL CREATE TABLE statement + Python SQLAlchemy model.” |
+
+---
+
+### 🧩 Example Prompt – Database Schema
+```text
+Goal: Create PostgreSQL schema for session_metadata table.
+Context: CR Assistant environment, PostgreSQL 16.11 on Ubuntu 24.04, database 'cr_assistant'.
+Inputs:
+- Columns: session_id UUID, start_time TIMESTAMP, end_time TIMESTAMP, status VARCHAR(20)
+Constraints:
+- PRIMARY KEY(session_id)
+- Use snake_case for column names
+Expected Output:
+- SQL CREATE TABLE statement
+- Python SQLAlchemy ORM model with matching structure
+
+🧩 Example Prompt – Backend Logic
+Goal: Generate Python function to insert a new session record into session_metadata.
+Context: Uses psycopg2 to connect through pgAdmin SSH tunnel; database 'cr_assistant'.
+Inputs: session_id, start_time, end_time, status
+Constraints: Return success/failure message and handle exceptions gracefully.
+Expected Output: Python code snippet implementing the function using psycopg2.
+
+💡 Best Practices
+- Keep prompts short but specific — avoid vague goals like “create backend”.
+- Always include environment context (PostgreSQL version, OS, connection method).
+- Use consistent naming (align with your schema docs).
+- For complex tasks, split into smaller issues and prompts (step by step).
+- Attach each prompt and AI response in the corresponding GitHub Issue for traceability.
+
+🧩 Prompt Checklist
+ Item 	 Check 
+ Goal clearly stated 	 ✅ 
+ Environment context included 	 ✅ 
+ Inputs defined 	 ✅ 
+ Constraints specified 	 ✅ 
+ Expected output format listed 	 ✅ 
+By following this prompt structure, Traycer AI and Claude will generate code that aligns perfectly with your environment, schema, and version control workflow.
+
 © Veeam Software 2025 – Internal Use Only
