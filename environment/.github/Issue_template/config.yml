@@ -1,0 +1,24 @@
+# -- GitHub Issue Template Chooser Configuration --
+# This file defines which issue templates appear in the "New Issue" screen.
+
+blank_issues_enabled: false   # Prevents users from bypassing templates
+
+contact_links:
+  - name: 💬 Environment / Infrastructure Questions
+    url: https://github.com/<your_org_or_username>/cr_assistant_agent/discussions
+    about: "Use Discussions for general environment or setup questions."
+
+issue_templates:
+  - name: Development Step / AI Integration
+    description: "Create a traceable development task or feature step for CR Assistant Agent."
+    title: "[Step‑#] <Concise Title>"
+    labels: ["development", "ai-assisted"]
+    assignees: ["cr_agent_admin"]
+    body: .github/ISSUE_TEMPLATE/development_step.md
+
+  - name: Bug / Validation Issue
+    description: "Report an error, configuration issue, or validation failure."
+    title: "[Bug‑#] <Short description>"
+    labels: ["bug", "validation"]
+    assignees: ["cr_agent_admin"]
+    body: .github/ISSUE_TEMPLATE/bug_validation_issue.md
